@@ -1,18 +1,35 @@
 
 <?php
-include_once "layouts/header.php";
+include_once "layouts/sidebar.php";
 include_once "controllers/CustomerController.php";
 
 $customer_controller=new CustomerController();
 $customer_list=$customer_controller->getAllCustomers();
 //var_dump($customer_list);
+
 ?>
 
 <main class="content">
 				<div class="container-fluid p-0">
 
 					<h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
-
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                        <?php
+                            if(isset($_GET['status']) && $_GET['status']==1)
+                            {
+                                echo "<div class='text-success bg-warning'> New Customer is succesfully created </div>";
+                            }                   
+                            
+                        ?>
+                        </div>
+                    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="create_customer.php" class="btn btn-dark">Add New Customer</a>
+                        </div>
+                    </div>
 					<div class="row">
                         <div class="col-md-12">
                             <table class="table" id="myTable">

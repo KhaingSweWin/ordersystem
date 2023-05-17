@@ -17,8 +17,9 @@ public static function connect(){
         {
             echo $e->getMessage();
         }
-        return self::$connection;
+       
     }
+    return self::$connection;
 }
 
 public static function disconnect(){
