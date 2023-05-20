@@ -19,7 +19,11 @@ $customer_list=$customer_controller->getAllCustomers();
                             if(isset($_GET['status']) && $_GET['status']==1)
                             {
                                 echo "<div class='text-success bg-warning'> New Customer is succesfully created </div>";
-                            }                   
+                            }
+                            else if(isset($_GET['update_status']) && $_GET['update_status']==1)                 
+                            {
+                                echo "<div class='text-success bg-warning'> Customer is succesfully updated</div>";
+                            }
                             
                         ?>
                         </div>
@@ -55,7 +59,7 @@ $customer_list=$customer_controller->getAllCustomers();
                                            
                                             echo "<td>" . $customer_list[$row]['addressLine1'] ."</td>";
                                             echo "<td>" . $customer_list[$row]['city'] ."</td>";
-                                            echo "<td><a class='btn btn-success mx=2'> View </a><a class='btn btn-warning mx-2'> Edit </a><a class='btn btn-danger'> Delete </a></td>";
+                                            echo "<td><a class='btn btn-success mx=2' href='view_customer.php?id=".$customer_list[$row]['customerNumber']."'> View </a><a class='btn btn-warning mx-2' href='edit_customer.php?id=".$customer_list[$row]['customerNumber']."'> Edit </a><a class='btn btn-danger'> Delete </a></td>";
                                             echo "</tr>";
                                         }
 

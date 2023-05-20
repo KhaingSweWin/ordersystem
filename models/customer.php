@@ -51,6 +51,59 @@ class Customer{
             return false;
         }
     }
+    public function getCustomerInfo($id)
+    {
+        //1. DB connection
+        $this->connection=Database::connect();
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        //2.sql statement
+        $sql="select customers.*,employees.* from customers join employees
+        on customerNumber=:id and customers.salesRepEmployeeNumber=employees.employeeNumber ";
+        $statement=$this->connection->prepare($sql);
+
+        $statement->bindParam(":id",$id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    public function updateCustomerInfo($id,$name,$firstname,$lastname,$phone,$address1,$address2,$city,$state,$country,$post,$report,$credit)
+    {
+        
+        //1. DB connection
+        $this->connection=Database::connect();
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        //2.sql statement
+
+        $sql="update customers set customerName=:name,contactFirstName=:firstname,contactLastName=:lastname,phone=:phone,addressLine1=:address1,addressLine2=:address2,
+        city=:city,state=:state,country=:country,postalCode=:post,salesRepEmployeeNumber=:report,creditLimit=:credit where customerNumber=:id";
+        $statement=$this->connection->prepare($sql);
+        $statement->bindParam(":name",$name);
+        $statement->bindParam(':firstname',$firstname);
+        $statement->bindParam(":lastname",$lastname);
+        $statement->bindParam(':phone',$phone);
+        $statement->bindParam(":address1",$address1);
+        $statement->bindParam(':address2',$address2);
+        $statement->bindParam(":city",$city);
+        $statement->bindParam(':state',$state);
+        $statement->bindParam(":country",$country);
+        $statement->bindParam(':post',$post);
+        $statement->bindParam(":report",$report);
+        $statement->bindParam(':credit',$credit);
+        $statement->bindParam(':id',$id);
+
+        if($statement->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
 
 
