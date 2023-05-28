@@ -16,6 +16,10 @@ class CustomerController extends Customer{
     public function updateCustomer($id,$name,$firstname,$lastname,$phone,$address1,$address2,$city,$state,$country,$post,$report,$credit){
         return $this->updateCustomerInfo($id,$name,$firstname,$lastname,$phone,$address1,$address2,$city,$state,$country,$post,$report,$credit);
     }
+    public function deleteCustomer($id)
+    {
+        return $this->deleteCustomerInfo($id);
+    }
 
 }
 

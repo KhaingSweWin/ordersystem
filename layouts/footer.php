@@ -32,23 +32,9 @@
 	<script src="js/jquery-3.7.0.min.js"></script>
 	<script src="js/datatables.min.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/myscript.js"></script>
 	
-	<script>
-		 var table = $('#myTable').DataTable();
- 
- new $.fn.dataTable.Buttons( table, {
-	 buttons: [
-		 'copy', 'excel', 'pdf'
-	 ]
- } );
- $('#myTable').DataTable( {
-    dom: 'Bfrtip',
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ]
-} );
-		
-	</script>
+	
 
 </body>
 

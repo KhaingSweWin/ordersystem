@@ -104,6 +104,25 @@ class Customer{
         }
 
     }
+
+    public function deleteCustomerInfo($id)
+    {
+        //1. DB connection
+        $this->connection=Database::connect();
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        //2.sql statement
+        $sql="delete from customers where customerNumber=:id";
+        $statement=$this->connection->prepare($sql);
+        $statement->bindParam(":id",$id);
+        if($statement->execute())
+        {
+            return "success";
+        }
+        else
+        {
+            return "fail";
+        }
+    }
 }
 
 

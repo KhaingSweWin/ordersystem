@@ -52,14 +52,14 @@ $customer_list=$customer_controller->getAllCustomers();
                                     <?php
                                         for($row=0;$row<sizeof($customer_list);$row++)
                                         {
-                                            echo "<tr>";
+                                            echo "<tr id='".$customer_list[$row]['customerNumber']."'>";
                                             echo "<td>". ($row+1)."</td>";
                                             echo "<td>" . $customer_list[$row]['customerName'] ."</td>";
                                             echo "<td>" . $customer_list[$row]['contactFirstName'] ." "  .$customer_list[$row]['contactLastName'] ."</td>";
                                            
                                             echo "<td>" . $customer_list[$row]['addressLine1'] ."</td>";
                                             echo "<td>" . $customer_list[$row]['city'] ."</td>";
-                                            echo "<td><a class='btn btn-success mx=2' href='view_customer.php?id=".$customer_list[$row]['customerNumber']."'> View </a><a class='btn btn-warning mx-2' href='edit_customer.php?id=".$customer_list[$row]['customerNumber']."'> Edit </a><a class='btn btn-danger'> Delete </a></td>";
+                                            echo "<td><a class='btn btn-success mx=2' href='view_customer.php?id=".$customer_list[$row]['customerNumber']."'> View </a><a class='btn btn-warning mx-2' href='edit_customer.php?id=".$customer_list[$row]['customerNumber']."'> Edit </a><a class='btn btn-danger delete'> Delete </a></td>";
                                             echo "</tr>";
                                         }
 

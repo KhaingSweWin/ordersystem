@@ -77,7 +77,7 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
+						<a class="sidebar-link" href="orders.php">
               <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Orders</span>
             </a>
 					</li>
