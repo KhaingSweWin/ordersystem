@@ -10,7 +10,8 @@ $(document).ready(function(){
     subtotal.val(price*$(this).val())    
     })
     console.log("in script")
-    $(document).on('click','.delete',function(){
+    $(document).on('click','.delete',function(event){
+        event.preventDefault();
         let status=confirm("are you sure to delete?")
         let tr=$(this).parent().parent();
         let id=tr.attr('id')
@@ -44,8 +45,8 @@ $(document).ready(function(){
             }
         })
     })
-    $(document).on('click','.addmore',function(){
-       
+    $(document).on('click','.addmore',function(event){
+       event.preventDefault();
         $('.prow').append(`<div class="row my-3">
         <div class="col-md-2">
             <label for="" class="form-label">Product Name</label>
@@ -55,7 +56,7 @@ $(document).ready(function(){
         </div>
         <div class="col-md-2">
             <label for="" class="form-label">Price</label>
-            <input type="number" name="price[]" id="" class="form-control price" value="<?php echo $price;?>">
+            <input type="double" name="price[]" id="" class="form-control price" value="<?php echo $price;?>">
         </div>
         <div class="col-md-2">
             <label for="" class="form-label">Qty</label>
@@ -64,7 +65,7 @@ $(document).ready(function(){
         
         <div class="col-md-2">
             <label for="" class="form-label">Sub Total</label>
-            <input type="number" name="subtotal" id="" class="form-control subtotal">
+            <input type="double" name="subtotal" id="" class="form-control subtotal">
         </div>
         
         <div class="col-md-2 ">

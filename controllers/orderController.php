@@ -6,6 +6,10 @@ class OrderController extends Order{
     {
         return $this->getOrderList();
     }
+    public function addOrder($orderDate,$customerNo,array $pname,array $price,array $qty)
+    {
+        return $this->createOrder($orderDate,$customerNo,$pname,$price,$qty);
+    }
 }
 
 

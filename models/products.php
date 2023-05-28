@@ -35,6 +35,7 @@ class Product{
         $result=$statement->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+   
 }
 
 ?>
