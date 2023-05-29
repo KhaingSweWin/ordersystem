@@ -10,6 +10,10 @@ class OrderController extends Order{
     {
         return $this->createOrder($orderDate,$customerNo,$pname,$price,$qty);
     }
+    public function reportOrder($year)
+    {
+        return $this->reportOrderInfo($year);
+    }
 }
 
 

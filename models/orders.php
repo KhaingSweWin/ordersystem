@@ -58,6 +58,27 @@ class Order{
         }
 
     }
+
+        
+        public function reportOrderInfo($year)
+        {
+           //1. DB connection
+        $this->connection=Database::connect();
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        //2. sql statement
+        $sql="select month(orderDate) as month,count(orderNumber) as totalorders 
+        from orders where year(orderDate)=:year group by month(orderDate)";
+        $statement=$this->connection->prepare($sql);
+
+        $statement->bindParam(":year",$year); 
+        if($statement->execute())
+        {
+            $result=$statement->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        
+        }
 }
 
 ?>

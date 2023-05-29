@@ -13,6 +13,7 @@
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+	<link rel="canonical" href="https://demo-basic.adminkit.io/charts-chartjs.html" />
 
 	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 	<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
@@ -80,6 +81,14 @@
 						<a class="sidebar-link" href="orders.php">
               <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Orders</span>
             </a>
+					</li>
+					<li class="sidebar-header">
+						Reports
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="report_orders.php">
+              			<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Monthly Orders</span>
+            			</a>
 					</li>
 
 					

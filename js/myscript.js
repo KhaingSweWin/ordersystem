@@ -83,4 +83,16 @@ $(document).ready(function(){
         }
     })
     })
+    $(document).on('click','.btn-search',function(event){
+        let year=$('#year').val();
+        console.log(year)
+        $.ajax({
+            url:'report.php',
+            method:'post',
+            data:{year:year},
+            success:function(response){
+                $('.reporttable').html(response);
+            }
+        })
+    })
 })
